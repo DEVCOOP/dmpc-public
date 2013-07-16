@@ -9,13 +9,14 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <github.global.server>github</github.global.server>
     </properties>
        
     <scm>
         <connection>scm:git:https://github.com/DEVCOOP/dmpc-public.git</connection>
         <url>git:https://github.com/DEVCOOP/dmpc-public.git</url>
     </scm>
-<!--    <modules>
+    <!--    <modules>
         <module>dmpc-client-api</module>       
         <module>dmpc-tool</module>
     </modules>-->
@@ -62,6 +63,13 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
                 </configuration>
             </plugin>
             <plugin>
