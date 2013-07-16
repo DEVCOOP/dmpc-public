@@ -16,10 +16,10 @@
         <connection>scm:git:https://github.com/DEVCOOP/dmpc-public.git</connection>
         <url>git:https://github.com/DEVCOOP/dmpc-public.git</url>
     </scm>
-    <!--    <modules>
+    <modules>
         <module>dmpc-client-api</module>       
-        <module>dmpc-tool</module>
-    </modules>-->
+        <!--<module>dmpc-tool</module>-->
+    </modules>
     
     
     
@@ -98,7 +98,28 @@
             
         </plugins>
     </build>
-    
+    <dependencies>
+         <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+        </dependency>
+         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.xml.bind</groupId>
+                    <artifactId>jaxb-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.xml.bind</groupId>
+                    <artifactId>jaxb-impl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
    
     <distributionManagement>
         <repository>
