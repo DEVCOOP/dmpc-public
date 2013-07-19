@@ -15,7 +15,6 @@ import javax.jws.WebService;
  * 
  * @author lforet
  */
-@WebService
 public interface DMPCProxy {
 
     /**
@@ -25,7 +24,7 @@ public interface DMPCProxy {
      * @param   request insc doit être renseigné
      * @return  le patient retrouvé dans le DMP permet de mettre en place l'identitoVigilance décrite dans [DMP1-DSFT] §7.1.1.3 
      *          le role de l'auteur (l'établissement de Santé) si autorisé nul sinon (cf td03)
-     * @throws fr.devcoop.dmpc.proxy.DMPCProxyException
+     * @throws DMPCProxyException
      */
     public TD02Response td02Exist(DMPCContext context, TD02Request request) throws DMPCProxyException;
 

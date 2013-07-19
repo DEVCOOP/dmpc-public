@@ -27,7 +27,7 @@ public class DMPCPatient {
     }
 
     /**
-     * Identifiant interne dans la système 
+     * Identifiant interne dans le système 
      */
     @NotNull
     public String getInternalId() {
