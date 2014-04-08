@@ -14,6 +14,9 @@ public class TD21Request {
     @NotNull
     private DMPCSubmission submission;
 
+    public TD21Request() {
+    }
+
     public TD21Request(DMPCSubmission submission) {
         this.submission = submission;
     }
