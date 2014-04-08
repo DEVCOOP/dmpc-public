@@ -15,7 +15,7 @@ import javax.jws.WebService;
  * 
  * @author lforet
  */
-public interface DMPCProxy {
+public interface DMPCClient {
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §6.4 : Test l'existence du patient dans le DMP, 
