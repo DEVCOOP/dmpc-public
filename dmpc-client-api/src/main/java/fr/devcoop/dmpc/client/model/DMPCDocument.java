@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 public class DMPCDocument {
 
-    private List<DMPCAuthor> auteurs = new ArrayList<>();
+    private List<DMPCPersonnelSante> auteurs = new ArrayList<>();
     @NotNull
     private String classCode;
     private String comments;
@@ -29,7 +29,7 @@ public class DMPCDocument {
     private String format;
 //    @NotNull
 //    private String healthcareFacilityType;
-    private DMPCAuthor legalAuthenticator;
+    private DMPCPersonnelSante legalAuthenticator;
     private String mimeType;
     private DMPCPatient patient;
     @NotNull
@@ -50,7 +50,7 @@ public class DMPCDocument {
      * 
      * @return auteur 
      */
-    public List<DMPCAuthor> getAuteurs() {
+    public List<DMPCPersonnelSante> getAuteurs() {
         return auteurs;
     }
 
@@ -142,7 +142,7 @@ public class DMPCDocument {
     /**
      * TODO : à préciser dans le cadre du DMP en authentification indirect !
      */
-    public DMPCAuthor getLegalAuthenticator() {
+    public DMPCPersonnelSante getLegalAuthenticator() {
         return legalAuthenticator;
     }
 
@@ -222,7 +222,7 @@ public class DMPCDocument {
     }
     
 
-    public void addAuteur(DMPCAuthor auteur) {
+    public void addAuteur(DMPCPersonnelSante auteur) {
         this.auteurs.add(auteur);
     }
 
@@ -261,7 +261,7 @@ public class DMPCDocument {
 //    public void setHealthcareFacilityType(String healthcareFacilityType) {
 //        this.healthcareFacilityType = healthcareFacilityType;
 //    }
-    public void setLegalAuthenticator(DMPCAuthor legalAuthenticator) {
+    public void setLegalAuthenticator(DMPCPersonnelSante legalAuthenticator) {
         this.legalAuthenticator = legalAuthenticator;
     }
 
@@ -297,7 +297,7 @@ public class DMPCDocument {
         this.uniqueId = uniqueId;
     }
 
-    public void setAuteurs(List<DMPCAuthor> auteurs) {
+    public void setAuteurs(List<DMPCPersonnelSante> auteurs) {
         this.auteurs = auteurs;
     }
 

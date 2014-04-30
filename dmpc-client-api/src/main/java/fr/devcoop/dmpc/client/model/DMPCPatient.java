@@ -17,6 +17,10 @@ public class DMPCPatient {
     private String nomEpouse;
     private String dateDeNaissance;
     private int ordreDeNaissance;
+    private String email;
+    private String telephone;
+    private DMPCAdresse adresse;
+    private DMPCSexe sexe;
 
     /**
      * Identifiant Nationale de Santé 
@@ -70,6 +74,22 @@ public class DMPCPatient {
         return ordreDeNaissance;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public DMPCAdresse getAdresse() {
+        return adresse;
+    }
+
+    public DMPCSexe getSexe() {
+        return sexe;
+    }
+
     public void setDateDeNaissance(String dateDeNaissance) {
         this.dateDeNaissance = dateDeNaissance;
     }
@@ -98,8 +118,25 @@ public class DMPCPatient {
         this.prenom = prenom;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setAdresse(DMPCAdresse adresse) {
+        this.adresse = adresse;
+    }
+
+    public void setSexe(DMPCSexe sexe) {
+        this.sexe = sexe;
+    }
+
+    @Override
     public String toString() {
-        return "DMPCPatient{" + "insc=" + insc + ", internalId=" + internalId + ", nom=" + nom + ", prenom=" + prenom + ", nomEpouse=" + nomEpouse + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + '}';
+        return "DMPCPatient{" + "insc=" + insc + ", internalId=" + internalId + ", nom=" + nom + ", prenom=" + prenom + ", nomEpouse=" + nomEpouse + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
     }
     
 }

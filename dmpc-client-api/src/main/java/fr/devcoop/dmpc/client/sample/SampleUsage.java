@@ -6,10 +6,11 @@ import fr.devcoop.dmpc.client.DMPCProxyException;
 import fr.devcoop.dmpc.client.TD02Request;
 import fr.devcoop.dmpc.client.TD21Request;
 import fr.devcoop.dmpc.client.TD21Response;
-import fr.devcoop.dmpc.client.model.DMPCAuthor;
+import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
 import fr.devcoop.dmpc.client.model.DMPCCode;
 import fr.devcoop.dmpc.client.model.DMPCDocument;
 import fr.devcoop.dmpc.client.model.DMPCPatient;
+import fr.devcoop.dmpc.client.model.DMPCStructureSante;
 import fr.devcoop.dmpc.client.model.DMPCSubmission;
 
 /**
@@ -23,13 +24,20 @@ public class SampleUsage {
         DMPCClient proxy = null; //(DMPCProxy) springContext.getBean("dmpcProxy");
 
         // Initialisation d'un PS auteur des différentes transactions
-        DMPCAuthor ps1 = new DMPCAuthor("1234", "Dupont", "Pierre");
+        DMPCPersonnelSante ps1 = new DMPCPersonnelSante("1234", "Dupont", "Pierre");
         ps1.setRole("Médecin");
-        ps1.setStructureNom("Clinique du beau Soleil");
+        final DMPCStructureSante structureSante = new DMPCStructureSante();
+        structureSante.setNom("Clinique du soleil");
+        ps1.setStructureSante(structureSante);
+        
         DMPCContext context = new DMPCContext(ps1);
         
         // Test d'existence (recherche) d'un patient
         DMPCPatient patient = proxy.td02Exist(context, new TD02Request("0404312364978044945679")).getPatient();
+        
+        // TODO :  exemple création patient si test existence nul.
+        
+        // TODO : exemple création d'accès internet.
 
         // Initialisation d'un document à soumettre au DMP
         DMPCDocument document = new DMPCDocument();

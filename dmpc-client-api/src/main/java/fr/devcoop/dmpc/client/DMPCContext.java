@@ -1,6 +1,6 @@
 package fr.devcoop.dmpc.client;
 
-import fr.devcoop.dmpc.client.model.DMPCAuthor;
+import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -14,21 +14,21 @@ import javax.validation.constraints.NotNull;
  */
 public class DMPCContext {
 
-    private DMPCAuthor author;
+    private DMPCPersonnelSante author;
 
     public DMPCContext() {
     }
 
-    public DMPCContext(DMPCAuthor author) {
+    public DMPCContext(DMPCPersonnelSante author) {
         this.author = author;
     }
     
     @NotNull
-    public DMPCAuthor getAuthor() {
+    public DMPCPersonnelSante getAuthor() {
         return author;
     }
 
-    public void setAuthor(DMPCAuthor author) {
+    public void setAuthor(DMPCPersonnelSante author) {
         this.author = author;
     }
  
