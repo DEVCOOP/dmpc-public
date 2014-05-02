@@ -2,6 +2,7 @@ package fr.devcoop.dmpc.client.model.biologie;
 
 import fr.devcoop.dmpc.client.model.DMPCCode;
 import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,6 +13,9 @@ public class StructuredBody {
     private List<ChapterSection> chapterSections;
 
     public List<ChapterSection> getChapterSections() {
+        if (chapterSections == null) {
+            chapterSections = new ArrayList<>();
+        }
         return chapterSections;
     }
 
@@ -33,6 +37,9 @@ public class StructuredBody {
         }
 
         public List<Section> getSections() {
+            if (sections == null) {
+                sections = new ArrayList<>();
+            }
             return sections;
         }
 
@@ -92,6 +99,9 @@ public class StructuredBody {
         }
 
         public List<Observation> getObservations() {
+            if (observations == null) {
+                observations = new ArrayList<>();
+            }
             return observations;
         }
 

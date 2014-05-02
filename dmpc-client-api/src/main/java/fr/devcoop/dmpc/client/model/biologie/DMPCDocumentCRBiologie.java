@@ -2,6 +2,7 @@ package fr.devcoop.dmpc.client.model.biologie;
 
 import fr.devcoop.dmpc.client.model.DMPCDocument;
 import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -52,6 +53,9 @@ public class DMPCDocumentCRBiologie extends DMPCDocument {
     }
 
     public List<Participation> getValidations() {
+        if (validations == null) {
+            validations = new ArrayList<>();
+        }
         return validations;
     }
 
@@ -60,6 +64,9 @@ public class DMPCDocumentCRBiologie extends DMPCDocument {
     }
 
     public List<DMPCPersonnelSante> getDestinataires() {
+        if (destinataires == null) {
+            destinataires = new ArrayList<>();
+        }
         return destinataires;
     }
 
@@ -68,6 +75,9 @@ public class DMPCDocumentCRBiologie extends DMPCDocument {
     }
 
     public StructuredBody getBody() {
+        if (body == null) {
+            body = new StructuredBody();
+        }
         return body;
     }
 
