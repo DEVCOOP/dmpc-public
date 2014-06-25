@@ -39,3 +39,6 @@ Exemple de code :
         // Envoi vers le DMP de la soumission.
         TD21Response td21Response = proxy.td21SubmitDocuments(context, new TD21Request(submission));
         System.out.println("Soumission enregistré avec l'uuid :" + td21Response.getSubmission().getUuid());	
+
+Pour un aperçu complet de la javadoc : [http://devcoop.github.io/dmpc-public/apidocs/index.html] 
+ 
