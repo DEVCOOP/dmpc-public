@@ -26,7 +26,7 @@ public interface DMPCClient {
      * @return le patient retrouvé dans le DMP permet de mettre en place
      * l'identitoVigilance décrite dans [DMP1-DSFT] §7.1.1.3 le role de l'auteur
      * (l'établissement de Santé) si autorisé nul sinon (cf td03)
-     * @throws DMPCProxyException
+     * @throws DMPCProxyException si problème technique ou fonctionnel
      */
     public TD02Response td02Exist(DMPCContext context, TD02Request request) throws DMPCProxyException;
 
@@ -137,10 +137,10 @@ public interface DMPCClient {
      * l'ensemble des jeux de valeurs (nomenclatures) utilisés dans le cadre du
      * DMP.
      *
-     * @see fr.devcoop.dmpc.proxy.model.DMPCCode.ASIPJeuxValeurs
-     * @param jeuxValeurs
+     * @see DMPCCode.ASIPJeuxValeurs
+     * @param jeuxValeurs type de jeux de valeur souhaité
      * @return la liste des codes correspondant au jeux de valeurs souhaités
-     * @throws DMPCProxyException
+     * @throws DMPCProxyException si problème technique ou fonctionnel
      */
     public List<DMPCCode> getCodesFor(DMPCCode.ASIPJeuxValeurs jeuxValeurs) throws DMPCProxyException;
 }
