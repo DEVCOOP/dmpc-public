@@ -14,20 +14,24 @@ L'objectif de Devcoop est d’implémenter, de commercialiser et de promouvoir c
 Exemple de code :
 
         // Initialisation du point d'entrée exécutant l'ensemble des transactions vers le DMP
-        DMPCProxy proxy = (DMPCProxy)springContext.getBean("dmpcProxy"); 
+        DMPCClient proxy = (DMPCClient) springContext.getBean("dmpcClient");
 
         // Initialisation d'un PS auteur des différentes transactions
-        DMPCAuthor ps1 = new DMPCAuthor("1234", "Dupont", "Pierre");
-        ps1.setRole("Médecin");    
-        ps1.setStructureNom("Clinique du beau Soleil");
-
+        DMPCPersonnelSante ps1 = new DMPCPersonnelSante("1234", "Dupont", "Pierre");
+        ps1.setRole("Médecin");
+        final DMPCStructureSante structureSante = new DMPCStructureSante();
+        structureSante.setNom("Clinique du soleil");
+        ps1.setStructureSante(structureSante);
+        
+        DMPCContext context = new DMPCContext(ps1);
+        
         // Test d'existence (recherche) d'un patient
-        DMPCPatient patient = proxy.td02Exist(new TD02Request("0404312364978044945679")).getPatient();
-
+        DMPCPatient patient = proxy.td02Exist(context, new TD02Request("0404312364978044945679")).getPatient();
+        
         // Initialisation d'un document à soumettre au DMP
-        DMPCDocument document =  new DMPCDocument();
+        DMPCDocument document = new DMPCDocument();
         document.setTitle("Titre du document concernant l'hépatite virale");
-        document.setContent("Contenu textuel");
+        document.setContent("Contenu textuel".getBytes());
         document.addEvent(new DMPCCode("B18", "2.16.840.1.113883.6.3", "Hépatite virale chronique"));
         document.setFormat(proxy.getCodesFor(DMPCCode.ASIPJeuxValeurs.FORMAT_CODE).get(1).getCode());
         // …
@@ -36,9 +40,11 @@ Exemple de code :
         DMPCSubmission submission = new DMPCSubmission();
         submission.addDocument(document);
         submission.setPatient(patient);
+        
         // Envoi vers le DMP de la soumission.
         TD21Response td21Response = proxy.td21SubmitDocuments(context, new TD21Request(submission));
-        System.out.println("Soumission enregistré avec l'uuid :" + td21Response.getSubmission().getUuid());	
+        System.out.println("Soumission enregistré avec l'uuid :" + td21Response.getSubmission().getUuid());
 
-Pour un aperçu complet de la javadoc : [http://devcoop.github.io/dmpc-public/apidocs/index.html] 
+
+Pour un aperçu complet de la javadoc : http://devcoop.github.io/dmpc-public/apidocs/index.html
  
