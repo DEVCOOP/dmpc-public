@@ -1,0 +1,24 @@
+-classpath
+'D:/lfo/scm/github/DEVCOOP/dmpc-public/dmpc-client-api/target/classes;C:/Users/lforet/.m2/repository/org/hibernate/hibernate-validator/4.2.0.Final/hibernate-validator-4.2.0.Final.jar;C:/Users/lforet/.m2/repository/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar;C:/Users/lforet/.m2/repository/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'D:/lfo/scm/github/DEVCOOP/dmpc-public/dmpc-client-api/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2014. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/lfo/scm/github/DEVCOOP/dmpc-public/dmpc-client-api/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'dmpc-public :: client-api 2.1-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' 'D:/lfo/scm/github/DEVCOOP/dmpc-public/dmpc-client-api/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'dmpc-public :: client-api 2.1-SNAPSHOT API'
