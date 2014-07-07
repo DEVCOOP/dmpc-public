@@ -9,8 +9,14 @@ import fr.devcoop.dmpc.client.model.DMPCRole;
  */
 public class TD02Response {
 
+    public enum Status {
+        ACTIF, FERME, INEXISTANT;
+    }
+    
     private DMPCPatient patient;
     private DMPCRole role;
+    private Status status;
+    private String raison;
 
     public DMPCPatient getPatient() {
         return patient;
@@ -28,8 +34,25 @@ public class TD02Response {
         this.role = role;
     }
 
-    public String toString() {
-        return "TD02Response{" + "patient=" + patient + ", role=" + role + '}';
+    public Status getStatus() {
+        return status;
     }
-    
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public String getRaison() {
+        return raison;
+    }
+
+    public void setRaison(String raison) {
+        this.raison = raison;
+    }
+
+    @Override
+    public String toString() {
+        return "TD02Response{" + "patient=" + patient + ", role=" + role + ", status=" + status + ", raison=" + raison + '}';
+    }
+
 }
