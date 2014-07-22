@@ -1,5 +1,6 @@
 package fr.devcoop.dmpc.client.model;
 
+import fr.devcoop.dmpc.client.model.biologie.DMPCDocumentCRBiologie;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
@@ -14,8 +15,9 @@ public class DMPCSubmission {
     private String comments;
     @NotNull
     private String contentType;
-    @NotEmpty
+//    @NotEmpty
     private List<DMPCDocument> documents = new ArrayList<>();
+    private List<DMPCDocumentCRBiologie> documentsCRBiologie = new ArrayList<>();
     @NotNull
     private DMPCPatient patient;
     private String title;
@@ -37,12 +39,12 @@ public class DMPCSubmission {
         return contentType;
     }
 
-    /**
-     * Une soumission contient au moins un document. 
-     */
-    @NotEmpty
     public List<DMPCDocument> getDocuments() {
         return documents;
+    }
+    
+    public List<DMPCDocumentCRBiologie> getDocumentsCRBiologie() {
+        return documentsCRBiologie;
     }
 
     /**
@@ -81,6 +83,10 @@ public class DMPCSubmission {
         this.documents.add(document);
     }
 
+    public void addCRBiologie(DMPCDocumentCRBiologie crBiologie) {
+        this.documentsCRBiologie.add(crBiologie);
+    }
+    
     public void setPatient(DMPCPatient patient) {
         this.patient = patient;
     }
@@ -95,6 +101,10 @@ public class DMPCSubmission {
 
     public void setDocuments(List<DMPCDocument> documents) {
         this.documents = documents;
+    }
+
+    public void setDocumentsCRBiologie(List<DMPCDocumentCRBiologie> documentsCRBiologie) {
+        this.documentsCRBiologie = documentsCRBiologie;
     }
 
     public String toString() {
