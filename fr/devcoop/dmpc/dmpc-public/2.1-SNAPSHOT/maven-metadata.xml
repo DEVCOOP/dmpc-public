@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>fr.devcoop.dmpc</groupId>
+  <artifactId>dmpc-public</artifactId>
+  <version>2.1-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20150716.202924</timestamp>
+      <buildNumber>2</buildNumber>
+    </snapshot>
+    <lastUpdated>20150716202924</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>2.1-20150716.202924-2</value>
+        <updated>20150716202924</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
