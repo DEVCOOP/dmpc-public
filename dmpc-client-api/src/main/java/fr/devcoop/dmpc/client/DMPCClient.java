@@ -26,9 +26,9 @@ public interface DMPCClient {
      * @return le patient retrouvé dans le DMP permet de mettre en place
      * l'identitoVigilance décrite dans [DMP1-DSFT] §7.1.1.3 le role de l'auteur
      * (l'établissement de Santé) si autorisé nul sinon (cf td03)
-     * @throws DMPCProxyException si problème technique ou fonctionnel
+     * @throws DMPCClientException si problème technique ou fonctionnel
      */
-    public TD02Response td02Exist(DMPCContext context, TD02Request request) throws DMPCProxyException;
+    public TD02Response td02Exist(DMPCContext context, TD02Request request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §6.5 : Demande d'ajout
@@ -37,9 +37,9 @@ public interface DMPCClient {
      * @param context requis pour accéder à la fonction
      * @param request le role doit être renseigné
      * @return une réponse vide
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD03Response td03AddAuthorization(DMPCContext context, TD03Request request) throws DMPCProxyException;
+    public TD03Response td03AddAuthorization(DMPCContext context, TD03Request request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §6.5 : Demande de suppression
@@ -48,9 +48,9 @@ public interface DMPCClient {
      * @param context requis pour accéder à la fonction
      * @param request le role doit être renseigné
      * @return une réponse vide
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD03Response td03RemoveAuthorization(DMPCContext context, TD03Request request) throws DMPCProxyException;
+    public TD03Response td03RemoveAuthorization(DMPCContext context, TD03Request request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §8.2 : Création d’un DMP
@@ -58,9 +58,9 @@ public interface DMPCClient {
      * @param context requis pour accéder à la fonction
      * @param request le patient à créer doit être renseigné
      * @return une réponse contenant le patient sauvegardé
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD11Response td11CreationDmp(DMPCContext context, TD11Request request) throws DMPCProxyException;
+    public TD11Response td11CreationDmp(DMPCContext context, TD11Request request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §8.6 : Accès Internet du Patient
@@ -69,9 +69,9 @@ public interface DMPCClient {
      * @param request contenant l'information patient et un canal OTP (One Time
      * Password)
      * @return les infos de connexions ainsi que le formulaire patient.
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD15aResponse td15aCreerAccesInternetPatient(DMPCContext context, TD15aRequest request) throws DMPCProxyException;
+    public TD15aResponse td15aCreerAccesInternetPatient(DMPCContext context, TD15aRequest request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §8.6.4 : Ajout de canal Otp
@@ -80,9 +80,9 @@ public interface DMPCClient {
      * @param request contenant l'information patient et un canal OTP (One Time
      * Password)
      * @return une réponse vide
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD15bResponse td15bAddCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCProxyException;
+    public TD15bResponse td15bAddCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §8.6.4 : Ajout de canal OTP
@@ -91,9 +91,9 @@ public interface DMPCClient {
      * @param request contenant l'information patient et un canal OTP (One Time
      * Password)
      * @return une réponse vide
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD15bResponse td15bRemoveCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCProxyException;
+    public TD15bResponse td15bRemoveCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §8.6.6 : Déblocage du compte
@@ -103,9 +103,9 @@ public interface DMPCClient {
      * @param request contenant l'information patient et un canal OTP (One Time
      * Password)
      * @return les infos de connexions ainsi que le formulaire patient.
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD15cResponse td15dDeblocageAccesInternetPatient(DMPCContext context, TD15cRequest request) throws DMPCProxyException;
+    public TD15cResponse td15dDeblocageAccesInternetPatient(DMPCContext context, TD15cRequest request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §9.2 : Soumission de documents
@@ -116,9 +116,9 @@ public interface DMPCClient {
      * @param request contient une soumission qui contient des documents pour un
      * même patient.
      * @return la soumission complété par des informations gérés par le proxy.
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD21Response td21SubmitDocuments(DMPCContext context, TD21Request request) throws DMPCProxyException;
+    public TD21Response td21SubmitDocuments(DMPCContext context, TD21Request request) throws DMPCClientException;
 
     /**
      * Transaction décrite dans [DMP1-DSFT] §9.4.4 : Dépublication de documents
@@ -128,9 +128,9 @@ public interface DMPCClient {
      * @param context requis pour accéder à la fonction
      * @param request contient l'uuid du document à dépublier
      * @return vide
-     * @throws DMPCProxyException si problème technique ou fonctionnel.
+     * @throws DMPCClientException si problème technique ou fonctionnel.
      */
-    public TD33CResponse td33cUnpublished(DMPCContext context, TD33CRequest request) throws DMPCProxyException;
+    public TD33CResponse td33cUnpublished(DMPCContext context, TD33CRequest request) throws DMPCClientException;
 
     /**
      * Service permmettant de récupérer les différents codes possible pour
@@ -140,7 +140,7 @@ public interface DMPCClient {
      * @see DMPCCode.ASIPJeuxValeurs
      * @param jeuxValeurs type de jeux de valeur souhaité
      * @return la liste des codes correspondant au jeux de valeurs souhaités
-     * @throws DMPCProxyException si problème technique ou fonctionnel
+     * @throws DMPCClientException si problème technique ou fonctionnel
      */
-    public List<DMPCCode> getCodesFor(DMPCCode.ASIPJeuxValeurs jeuxValeurs) throws DMPCProxyException;
+    public List<DMPCCode> getCodesFor(DMPCCode.ASIPJeuxValeurs jeuxValeurs) throws DMPCClientException;
 }

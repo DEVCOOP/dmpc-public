@@ -2,7 +2,7 @@ package fr.devcoop.dmpc.client.sample;
 
 import fr.devcoop.dmpc.client.DMPCContext;
 import fr.devcoop.dmpc.client.DMPCClient;
-import fr.devcoop.dmpc.client.DMPCProxyException;
+import fr.devcoop.dmpc.client.DMPCClientException;
 import fr.devcoop.dmpc.client.TD02Request;
 import fr.devcoop.dmpc.client.TD21Request;
 import fr.devcoop.dmpc.client.TD21Response;
@@ -19,7 +19,7 @@ import fr.devcoop.dmpc.client.model.DMPCSubmission;
  */
 public class SampleUsage {
 
-    public static void main(String... args) throws DMPCProxyException {
+    public static void main(String... args) throws DMPCClientException {
         // Initialisation du point d'entrée exécutant l'ensemble des transactions vers le DMP
         DMPCClient proxy = null; //(DMPCProxy) springContext.getBean("dmpcProxy");
 
