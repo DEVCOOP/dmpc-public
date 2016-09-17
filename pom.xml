@@ -153,11 +153,15 @@
         </plugins>
    </reporting>
     <distributionManagement>
-        <repository>
+       <repository>
             <id>github</id>
             <name>GitHub ${project.artifactId} Repository</name>
             <url>https://raw.github.com/DEVCOOP/dmpc-public/mvn-repo</url>
         </repository>
+        <snapshotRepository>
+            <id>nexus-devcoop-snapshot</id>
+            <url>http://nexus.dev.coop/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
 
 </project>
