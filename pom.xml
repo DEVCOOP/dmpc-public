@@ -21,7 +21,85 @@
         <!--<module>dmpc-tool</module>-->
     </modules>
     
+    <profiles>
+        <profile> 
+            <id>github-deployment</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <configuration>
+                            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                        </configuration>
+                    </plugin>    
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <configuration>
+                            <repositoryName>dmpc-public</repositoryName>
+                            <repositoryOwner>DEVCOOP</repositoryOwner>   
+                        </configuration>
+               
+                        <executions>
+                            <execution>
+                                <id>deps</id>
+                                <configuration>
+                                    <message>Maven artifacts for ${project.version}</message>  
+                                    <noJekyll>true</noJekyll>                                  
+                                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> 
+                                    <branch>refs/heads/mvn-repo</branch>                     
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </configuration>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>deploy</phase>
+                            </execution>
+                            <execution>
+                                <id>site</id>
+                                <configuration>
+                                    <message>Creating site for ${project.version}</message>
+                                    <host>api.github.com</host>
+                                    <server>github</server>
+                                </configuration>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>site</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub ${project.artifactId} Repository</name>
+                    <url>https://raw.github.com/DEVCOOP/dmpc-public/mvn-repo</url>
+                </repository>
+            </distributionManagement>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-project-info-reports-plugin</artifactId>
+                        <version>2.6</version>
+                        <reportSets>
+                            <reportSet>
+                                <reports>
+                                    <!--<report>index</report>-->
+                                </reports>
+                            </reportSet>
+                        </reportSets>
+                    </plugin>
+                </plugins>
+            </reporting>
     
+        </profile>
+    </profiles>
     
     <build>
         <pluginManagement>
@@ -65,52 +143,6 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <configuration>
-                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <configuration>
-                    <repositoryName>dmpc-public</repositoryName>
-                    <repositoryOwner>DEVCOOP</repositoryOwner>   
-                </configuration>
-               
-                <executions>
-                    <execution>
-                        <id>deps</id>
-                        <configuration>
-                            <message>Maven artifacts for ${project.version}</message>  
-                            <noJekyll>true</noJekyll>                                  
-                            <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> 
-                            <branch>refs/heads/mvn-repo</branch>                     
-                            <includes>
-                                <include>**/*</include>
-                            </includes>
-                        </configuration>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>deploy</phase>
-                    </execution>
-                    <execution>
-                        <id>site</id>
-                        <configuration>
-                            <message>Creating site for ${project.version}</message>
-                            <host>api.github.com</host>
-                            <server>github</server>
-                        </configuration>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>site</phase>
-                    </execution>
-                </executions>
-            </plugin>
             
         </plugins>
     </build>
@@ -136,31 +168,15 @@
             </exclusions>
         </dependency>
     </dependencies>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.6</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <!--<report>index</report>-->
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-   </reporting>
+    
     <distributionManagement>
-       <repository>
-            <id>github</id>
-            <name>GitHub ${project.artifactId} Repository</name>
-            <url>https://raw.github.com/DEVCOOP/dmpc-public/mvn-repo</url>
+        <repository>
+            <id>nexus-devcoop</id>
+            <url>http://repo.dev.coop/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>nexus-devcoop-snapshot</id>
-            <url>http://nexus.dev.coop/nexus/content/repositories/snapshots</url>
+            <url>http://repo.dev.coop/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
