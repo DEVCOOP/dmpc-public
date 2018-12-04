@@ -17,8 +17,10 @@ public class DMPCPatient {
     private String nomEpouse;
     private String dateDeNaissance;
     private int ordreDeNaissance;
+    private String paysDeNaissance;
     private String email;
     private String telephone;
+    private String mobile;
     private DMPCAdresse adresse;
     private DMPCSexe sexe;
 
@@ -74,8 +76,16 @@ public class DMPCPatient {
         return ordreDeNaissance;
     }
 
+    public String getPaysDeNaissance() {
+        return paysDeNaissance;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public String getMobile() {
+        return mobile;
     }
 
     public String getTelephone() {
@@ -114,6 +124,10 @@ public class DMPCPatient {
         this.ordreDeNaissance = ordreDeNaissance;
     }
 
+    public void setPaysDeNaissance(String paysDeNaissance) {
+        this.paysDeNaissance = paysDeNaissance;
+    }
+
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
@@ -124,6 +138,10 @@ public class DMPCPatient {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public void setAdresse(DMPCAdresse adresse) {

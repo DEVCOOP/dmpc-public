@@ -7,6 +7,7 @@ package fr.devcoop.dmpc.client.model;
 public class DMPCAdresse {
 
     private String ligneAdresse;
+    private String complementAdresse;
     private String codePostal;
     private String ville;
     private String pays;
@@ -27,6 +28,14 @@ public class DMPCAdresse {
 
     public void setLigneAdresse(String ligneAdresse) {
         this.ligneAdresse = ligneAdresse;
+    }
+
+    public String getComplementAdresse() {
+        return complementAdresse;
+    }
+
+    public void setComplementAdresse(String complementAdresse) {
+        this.complementAdresse = complementAdresse;
     }
 
     public String getCodePostal() {
