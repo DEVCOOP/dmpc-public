@@ -12,6 +12,7 @@ public class DMPCPatient {
     private String insc;
     @NotNull
     private String internalId;
+    private String civilite;
     private String nom;
     private String prenom;
     private String nomEpouse;
@@ -25,7 +26,7 @@ public class DMPCPatient {
     private DMPCSexe sexe;
 
     /**
-     * Identifiant Nationale de Santé 
+     * Identifiant Nationale de Santé
      */
     @NotNull
     public String getInsc() {
@@ -33,11 +34,15 @@ public class DMPCPatient {
     }
 
     /**
-     * Identifiant interne dans le système 
+     * Identifiant interne dans le système
      */
     @NotNull
     public String getInternalId() {
         return internalId;
+    }
+
+    public String getCivilite() {
+        return civilite;
     }
 
     /**
@@ -63,7 +68,7 @@ public class DMPCPatient {
 
     /**
      * Date de naissance au format yyyyMMdd.
-     * 
+     *
      */
     public String getDateDeNaissance() {
         return dateDeNaissance;
@@ -112,6 +117,10 @@ public class DMPCPatient {
         this.internalId = internalId;
     }
 
+    public void setCivilite(String civilite) {
+        this.civilite = civilite;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -156,5 +165,5 @@ public class DMPCPatient {
     public String toString() {
         return "DMPCPatient{" + "insc=" + insc + ", internalId=" + internalId + ", nom=" + nom + ", prenom=" + prenom + ", nomEpouse=" + nomEpouse + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
     }
-    
+
 }
