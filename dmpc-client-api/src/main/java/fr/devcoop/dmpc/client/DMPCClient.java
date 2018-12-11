@@ -6,20 +6,32 @@ import java.util.List;
 /**
  * Point d'entrée d'un client vers le proxy DMP. Toute requête sur ce proxy sera
  * interprétée et transmise au DMP par la mise en place des différentes
- * exigences du [DMP1-DSFT] notamment la TD0.1 §6.2.
+ * exigences du [DMP] notamment la TD0.1 .
  *
  * <p>
  * Le proxy a donc pour but de rendre transparent la mise en place de tous les
  * mécanismes complexes induits par la sécurisation des accès et le respect des
  * standards exigés par le Cadre d'Intéropérabilité [CI-SIS].
  *
- * @author lforet
  */
 public interface DMPCClient {
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §6.4 : Test l'existence du patient
-     * dans le DMP,
+     * Cette fonctionnalité permet au LPS d’acquérir l’identité du patient et de déclencher les mécanismes d’identito-vigilance.
+     * 
+     * @param context
+     * @param request
+     * @return TD00Response
+     * @throws DMPCClientException 
+     */
+    public TD00Response td00(DMPCContext context, TD00Request request) throws DMPCClientException;
+    
+    /**
+     * Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient existe et de récupérer les données suivantes (cf. RG_0310) :
+     *  <li>statut du DMP du patient (EF_DMP12_01),
+     *  <li>si le DMP du patient est fermé, date, motif et raison de la fermeture (cf. EF_DMP12),
+     *  <li>statut de l’autorisation d’accès de l’acteur de santé (EF_DMP04_01),
+     *  <li> statut « médecin traitant DMP » (EF_DMP01_07).
      *
      * @param context requis pour accéder à la fonction
      * @param request insc doit être renseigné
@@ -31,8 +43,7 @@ public interface DMPCClient {
     public TD02Response td02Exist(DMPCContext context, TD02Request request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §6.5 : Demande d'ajout
-     * d'autorisation d'accès
+     *  Demande d'ajout d'autorisation d'accès
      *
      * @param context requis pour accéder à la fonction
      * @param request le role doit être renseigné
@@ -42,8 +53,7 @@ public interface DMPCClient {
     public TD03Response td03AddAuthorization(DMPCContext context, TD03Request request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §6.5 : Demande de suppression
-     * d'autorisation d'accès
+     * Demande de suppression d'autorisation d'accès
      *
      * @param context requis pour accéder à la fonction
      * @param request le role doit être renseigné
@@ -53,7 +63,7 @@ public interface DMPCClient {
     public TD03Response td03RemoveAuthorization(DMPCContext context, TD03Request request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §8.2 : Création d’un DMP
+     * Création d’un DMP
      *
      * @param context requis pour accéder à la fonction
      * @param request le patient à créer doit être renseigné
@@ -63,7 +73,7 @@ public interface DMPCClient {
     public TD11Response td11CreationDmp(DMPCContext context, TD11Request request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §8.6 : Accès Internet du Patient
+     *  Accès Internet du Patient
      *
      * @param context requis pour accéder à la fonction
      * @param request contenant l'information patient et un canal OTP (One Time
@@ -74,7 +84,7 @@ public interface DMPCClient {
     public TD15aResponse td15aCreerAccesInternetPatient(DMPCContext context, TD15aRequest request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §8.6.4 : Ajout de canal Otp
+     *  Ajout de canal Otp
      *
      * @param context requis pour accéder à la fonction
      * @param request contenant l'information patient et un canal OTP (One Time
@@ -85,7 +95,7 @@ public interface DMPCClient {
     public TD15bResponse td15bAddCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §8.6.4 : Ajout de canal OTP
+     * Suppression de canal OTP
      *
      * @param context requis pour accéder à la fonction
      * @param request contenant l'information patient et un canal OTP (One Time
@@ -96,8 +106,7 @@ public interface DMPCClient {
     public TD15bResponse td15bRemoveCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §8.6.6 : Déblocage du compte
-     * internet ou mise à jour des codes internet.
+     * Déblocage du compte internet ou mise à jour des codes internet.
      *
      * @param context requis pour accéder à la fonction
      * @param request contenant l'information patient et un canal OTP (One Time
@@ -108,7 +117,7 @@ public interface DMPCClient {
     public TD15cResponse td15dDeblocageAccesInternetPatient(DMPCContext context, TD15cRequest request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §9.2 : Soumission de documents
+     * Soumission de documents
      *
      * Prérequis avoir obtenu l'autorisation d'accès
      *
@@ -121,7 +130,7 @@ public interface DMPCClient {
     public TD21Response td21SubmitDocuments(DMPCContext context, TD21Request request) throws DMPCClientException;
 
     /**
-     * Transaction décrite dans [DMP1-DSFT] §9.4.4 : Dépublication de documents
+     * Dépublication de documents
      *
      * Prérequis avoir obtenu l'autorisation d'accès
      *
