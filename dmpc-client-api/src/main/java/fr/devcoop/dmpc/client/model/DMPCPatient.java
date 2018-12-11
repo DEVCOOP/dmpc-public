@@ -121,6 +121,14 @@ public class DMPCPatient {
         this.civilite = civilite;
     }
 
+    public void setNomPatronymique(String nomPatronymique) {
+        this.nomPatronymique = nomPatronymique;
+    }
+
+    public void setNomUsuel(String nomUsuel) {
+        this.nomUsuel = nomUsuel;
+    }
+
     public void setOrdreDeNaissance(int ordreDeNaissance) {
         this.ordreDeNaissance = ordreDeNaissance;
     }
