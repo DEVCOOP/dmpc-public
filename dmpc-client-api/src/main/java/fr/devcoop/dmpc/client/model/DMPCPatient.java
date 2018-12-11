@@ -13,9 +13,9 @@ public class DMPCPatient {
     @NotNull
     private String internalId;
     private String civilite;
-    private String nom;
+    private String nomPatronymique;
     private String prenom;
-    private String nomEpouse;
+    private String nomUsuel;
     private String dateDeNaissance;
     private int ordreDeNaissance;
     private String paysDeNaissance;
@@ -46,10 +46,17 @@ public class DMPCPatient {
     }
 
     /**
-     * Nom du patient
+     * Le nom patronymique ou encore nom de famille ou encore nom de naissance
      */
-    public String getNom() {
-        return nom;
+    public String getNomPatronymique() {
+        return nomPatronymique;
+    }
+
+    /**
+     * Le nom usuel ou encore nom d'usage
+     */
+    public String getNomUsuel() {
+        return nomUsuel;
     }
 
     /**
@@ -57,13 +64,6 @@ public class DMPCPatient {
      */
     public String getPrenom() {
         return prenom;
-    }
-
-    /**
-     * Nom d'épouse de la patiente
-     */
-    public String getNomEpouse() {
-        return nomEpouse;
     }
 
     /**
@@ -121,14 +121,6 @@ public class DMPCPatient {
         this.civilite = civilite;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public void setNomEpouse(String nomEpouse) {
-        this.nomEpouse = nomEpouse;
-    }
-
     public void setOrdreDeNaissance(int ordreDeNaissance) {
         this.ordreDeNaissance = ordreDeNaissance;
     }
@@ -163,7 +155,7 @@ public class DMPCPatient {
 
     @Override
     public String toString() {
-        return "DMPCPatient{" + "insc=" + insc + ", internalId=" + internalId + ", nom=" + nom + ", prenom=" + prenom + ", nomEpouse=" + nomEpouse + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
+        return "DMPCPatient{" + "insc=" + insc + ", internalId=" + internalId + ", nomPatronymique=" + nomPatronymique + ", prenom=" + prenom + ", nomUsuel=" + nomUsuel + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
     }
 
 }

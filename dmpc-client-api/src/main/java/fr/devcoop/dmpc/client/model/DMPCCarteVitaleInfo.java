@@ -1,7 +1,7 @@
 package fr.devcoop.dmpc.client.model;
 
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -10,30 +10,31 @@ import org.hibernate.validator.constraints.Length;
 public class DMPCCarteVitaleInfo {
 
     @NotNull
-    private String nom;
+    private String nomPatronymique;
     @NotNull
-    private String nomEpouse;
+    private String nomUsuel;
     @NotNull
     private String prenom;
     @NotNull
-    @Length(max = 6, min = 6)
+    @Size(max = 6, min = 6)
     private String dateNaissance;
 
-    public String getNom() {
-        return nom;
+    public String getNomPatronymique() {
+        return nomPatronymique;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomPatronymique(String nomPatronymique) {
+        this.nomPatronymique = nomPatronymique;
     }
 
-    public String getNomEpouse() {
-        return nomEpouse;
+    public String getNomUsuel() {
+        return nomUsuel;
     }
 
-    public void setNomEpouse(String nomEpouse) {
-        this.nomEpouse = nomEpouse;
+    public void setNomUsuel(String nomUsuel) {
+        this.nomUsuel = nomUsuel;
     }
+
 
     public String getPrenom() {
         return prenom;
