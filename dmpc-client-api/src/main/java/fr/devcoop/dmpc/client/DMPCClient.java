@@ -24,7 +24,7 @@ public interface DMPCClient {
      * @return TD00Response
      * @throws DMPCClientException 
      */
-    public TD00Response td00(DMPCContext context, TD00Request request) throws DMPCClientException;
+    public TD00Response td00Identity(DMPCContext context, TD00Request request) throws DMPCClientException;
     
     /**
      * Cette fonctionnalité permet, via la transaction TD0.2, de déterminer si le DMP du patient existe et de récupérer les données suivantes (cf. RG_0310) :
