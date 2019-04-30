@@ -5,29 +5,40 @@ import javax.validation.constraints.NotNull;
 /**
  * Ensemble des paramètres requis et optionnels pour la transaction TD0.2
  * 
+ * 
  * @author lforet
  */
 public class TD02Request {
 
     @NotNull
-    private String insc;
+    private String ins;
 
     public TD02Request() {
     }
 
-    public TD02Request(String insc) {
-        this.insc = insc;
+    public TD02Request(String patientId) {
+        this.ins = patientId;
     }
 
+    public String getIns() {
+        return ins;
+    }
+
+    public void setIns(String patientId) {
+        this.ins = patientId;
+    }
+    
+    @Deprecated
     public String getInsc() {
-        return insc;
+        return ins;
     }
 
+    @Deprecated
     public void setInsc(String insc) {
-        this.insc = insc;
+        this.ins = insc;
     }
 
     public String toString() {
-        return "TD02Request{" + "insc=" + insc + '}';
+        return "TD02Request{" + "patientId=" + ins + '}';
     }    
 }

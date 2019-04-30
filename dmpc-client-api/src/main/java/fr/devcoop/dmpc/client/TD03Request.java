@@ -6,12 +6,13 @@ import javax.validation.constraints.NotNull;
 /**
  * Ensemble des paramètres requis et optionnels pour la transaction TD0.3
  * 
+ * 
  * @author lforet
  */
 public class TD03Request {
 
     @NotNull
-    private String insc;
+    private String ins;
     @NotNull
     private DMPCRole role;
 
@@ -19,16 +20,26 @@ public class TD03Request {
     }
 
     public TD03Request(String insc, DMPCRole role) {
-        this.insc = insc;
+        this.ins = insc;
         this.role = role;
     }
 
-    public String getInsc() {
-        return insc;
+    public String getIns() {
+        return ins;
     }
 
+    public void setIns(String patientid) {
+        this.ins = patientid;
+    }
+
+    @Deprecated
+    public String getInsc() {
+        return ins;
+    }
+
+    @Deprecated
     public void setInsc(String insc) {
-        this.insc = insc;
+        this.ins = insc;
     }
 
     public DMPCRole getRole() {
@@ -40,7 +51,7 @@ public class TD03Request {
     }
 
     public String toString() {
-        return "TD03Request{" + "insc=" + insc + ", role=" + role + '}';
+        return "TD03Request{" + "insc=" + ins + ", role=" + role + '}';
     }
     
 }

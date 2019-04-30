@@ -19,6 +19,8 @@ public interface DMPCClient {
     /**
      * Cette fonctionnalité permet au LPS d’acquérir l’identité du patient et de déclencher les mécanismes d’identito-vigilance.
      * 
+     * Le NIR est utilisé pour INS dans le DMP  v2, l'INSc n'est plus utilisé
+     * 
      * @param context
      * @param request
      * @return TD00Response
@@ -34,7 +36,7 @@ public interface DMPCClient {
      *  <li> statut « médecin traitant DMP » (EF_DMP01_07).
      *
      * @param context requis pour accéder à la fonction
-     * @param request insc doit être renseigné
+     * @param request l'INS (Identifiant National de Santé) doit être renseigné
      * @return le patient retrouvé dans le DMP permet de mettre en place
      * l'identitoVigilance décrite dans [DMP1-DSFT] §7.1.1.3 le role de l'auteur
      * (l'établissement de Santé) si autorisé nul sinon (cf td03)

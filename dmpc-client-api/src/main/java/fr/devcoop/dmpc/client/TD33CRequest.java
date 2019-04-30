@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Ensemble des paramètres requis et optionnels pour la transaction TD3.3c
  * 
+ * 
  * @author lforet
  */
 public class TD33CRequest {
@@ -12,7 +13,7 @@ public class TD33CRequest {
     @NotNull
     private String documentUuid;
     @NotNull
-    private String insc;
+    private String patientId;
     @NotNull 
     private String contentType;
     
@@ -24,12 +25,22 @@ public class TD33CRequest {
         this.documentUuid = documentUuid;
     }
 
-    public String getInsc() {
-        return insc;
+    public String getIns() {
+        return patientId;
     }
 
+    public void setIns(String patientId) {
+        this.patientId = patientId;
+    }
+
+    @Deprecated
+    public String getInsc() {
+        return patientId;
+    }
+
+    @Deprecated
     public void setInsc(String insc) {
-        this.insc = insc;
+        this.patientId = insc;
     }
 
     public String getContentType() {
@@ -42,7 +53,7 @@ public class TD33CRequest {
 
     @Override
     public String toString() {
-        return "TD33CRequest{" + "documentUuid=" + documentUuid + ", insc=" + insc + ", contentType=" + contentType + '}';
+        return "TD33CRequest{" + "documentUuid=" + documentUuid + ", insc=" + patientId + ", contentType=" + contentType + '}';
     }
     
 }

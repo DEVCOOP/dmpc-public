@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 public class DMPCPatient {
 
     @NotNull
-    private String insc;
+    private String ins;
     @NotNull
     private String internalId;
     private String civilite;
@@ -26,11 +26,22 @@ public class DMPCPatient {
     private DMPCSexe sexe;
 
     /**
-     * Identifiant Nationale de Santé
+     * Identifiant National du santé du patient dans le DMP (NIR dans le DMP v2)
      */
     @NotNull
+    public String getIns() {    
+        return ins;
+    }
+
+    /**
+     * Utilisez le patientId, l'INSc n'est plus reconnu par le DMP en V2
+     * 
+     * @return l'INS
+     * @deprecated 
+     */
+    @Deprecated
     public String getInsc() {
-        return insc;
+        return ins;
     }
 
     /**
@@ -109,8 +120,9 @@ public class DMPCPatient {
         this.dateDeNaissance = dateDeNaissance;
     }
 
+    @Deprecated
     public void setInsc(String insc) {
-        this.insc = insc;
+        this.ins = insc;
     }
 
     public void setInternalId(String internalId) {
@@ -131,6 +143,10 @@ public class DMPCPatient {
 
     public void setOrdreDeNaissance(int ordreDeNaissance) {
         this.ordreDeNaissance = ordreDeNaissance;
+    }
+
+    public void setIns(String ins) {
+        this.ins = ins;
     }
 
     public void setPaysDeNaissance(String paysDeNaissance) {
@@ -163,7 +179,7 @@ public class DMPCPatient {
 
     @Override
     public String toString() {
-        return "DMPCPatient{" + "insc=" + insc + ", internalId=" + internalId + ", nomPatronymique=" + nomPatronymique + ", prenom=" + prenom + ", nomUsuel=" + nomUsuel + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
+        return "DMPCPatient{" + "insc=" + ins + ", internalId=" + internalId + ", nomPatronymique=" + nomPatronymique + ", prenom=" + prenom + ", nomUsuel=" + nomUsuel + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
     }
 
 }

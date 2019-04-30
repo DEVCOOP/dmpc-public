@@ -1,21 +1,31 @@
 package fr.devcoop.dmpc.client;
 
 /**
- *
- * @author lfo
+ * 
+ * 
  */
 public class TD15bRequest {
     
-    private String insc;
+    private String ins;
     private String email;
     private String telephone;
 
-    public String getInsc() {
-        return insc;
+    public String getIns() {
+        return ins;
     }
 
+    public void setIns(String patientId) {
+        this.ins = patientId;
+    }
+
+    @Deprecated
+    public String getInsc() {
+        return ins;
+    }
+
+    @Deprecated
     public void setInsc(String insc) {
-        this.insc = insc;
+        this.ins = insc;
     }
 
     public String getEmail() {
