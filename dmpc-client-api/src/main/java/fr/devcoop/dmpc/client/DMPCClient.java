@@ -18,11 +18,16 @@ public interface DMPCClient {
 
     /**
      * Cette fonctionnalité permet au LPS d’acquérir l’identité du patient et de déclencher les mécanismes d’identito-vigilance.
+     * Avant le premier accès au DMP d’un patient via les interfaces LPS v2 du système DMP, le LPS :
+     * <li>acquiert l’INS et les traits d’identité du patient (cf. RG_0110) via la transaction TD0.0,
+     * <li>déclenche les mécanismes d’identito-vigilance en utilisant les données d’identification du patient fournies par la transaction TD0.0 (cf. RG_0130).
+     * <li>détermine le statut de l’INS du patient (cf. RG_0140).
+     * <li>Pour les accès suivants, le LPS acquiert l’INS du patient stocké en base locale.
      * 
-     * Le NIR est utilisé pour INS dans le DMP  v2, l'INSc n'est plus utilisé
+     * L'appel à TD0.0 est possible dans d'autres cas. Cf. EX_GEN-1510 dans ce chapitre.
      * 
      * @param context
-     * @param request
+     * @param request Contient li
      * @return TD00Response
      * @throws DMPCClientException 
      */
