@@ -13,6 +13,9 @@ public class DMPCNir {
     @Size(min = 2, max = 2)
     private String cle;
 
+    public DMPCNir() {
+    }
+    
     public DMPCNir(String quinzeDigits) {
         this.numero = quinzeDigits.substring(0, 13);
         this.cle = quinzeDigits.substring(13, 15);
