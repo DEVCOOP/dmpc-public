@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
  */
 public class DMPCCarteVitaleInfo {
 
-    @NotNull
     private String nomPatronymique;
     @NotNull
     private String nomUsuel;

@@ -1,6 +1,7 @@
 package fr.devcoop.dmpc.client;
 
 import fr.devcoop.dmpc.client.model.DMPCCode;
+import fr.devcoop.dmpc.client.model.DMPCParametres;
 import java.util.List;
 
 /**
@@ -159,4 +160,15 @@ public interface DMPCClient {
      * @throws DMPCClientException si problème technique ou fonctionnel
      */
     public List<DMPCCode> getCodesFor(DMPCCode.ASIPJeuxValeurs jeuxValeurs) throws DMPCClientException;
+    
+    /**
+     * Service permmettant de récupérer le paramètrage du DMP, afin de savoir si 
+     * le LPS doit réaliser la fonctions-gestion-mineurs (EX_GEN-1550)
+     *
+     * @see DMPCCode.ASIPJeuxValeurs
+     * @param jeuxValeurs type de jeux de valeur souhaité
+     * @return la liste des codes correspondant au jeux de valeurs souhaités
+     * @throws DMPCClientException si problème technique ou fonctionnel
+     */
+    public DMPCParametres getParametres() throws DMPCClientException;
 }

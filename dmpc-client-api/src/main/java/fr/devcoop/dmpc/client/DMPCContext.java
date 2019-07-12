@@ -1,20 +1,23 @@
 package fr.devcoop.dmpc.client;
 
+import fr.devcoop.dmpc.client.model.DMPCCode;
 import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
 import javax.validation.constraints.NotNull;
 
 /**
- * A tout appel du proxy vers le DMP, il faut générer un contexte d'appel. C'est 
- * à dire qu'il faut que le proxy connaisse les informations suivantes :
+ * A tout appel du proxy vers le DMP, il faut générer un contexte d'appel, il permet 
+ * de générer le VIHF (Vecteur d'Identification et d'Habilitation Formelles). 
+ * 
+ * C'est  à dire qu'il faut que le proxy connaisse les informations suivantes :
  * 
  * <li> l'auteur PS qui réalise l'action.
- * <
+ * <li> un code de confidentialité : pour l'instant seul INVISIBLE_REPRESENTANTS_LEGAUX^1.2.250.1.213.1.1.4.13 est géré par le DMP.
  * 
- * @author lforet
  */
 public class DMPCContext {
 
     private DMPCPersonnelSante author;
+    private DMPCCode confidentialitCode;
 
     public DMPCContext() {
     }
@@ -31,10 +34,22 @@ public class DMPCContext {
     public void setAuthor(DMPCPersonnelSante author) {
         this.author = author;
     }
- 
+
+    /** 
+     * 
+     * @return 
+     */
+    public DMPCCode getConfidentialitCode() {
+        return confidentialitCode;
+    }
+
+    public void setConfidentialitCode(DMPCCode confidentialitCode) {
+        this.confidentialitCode = confidentialitCode;
+    }
+
     @Override
     public String toString() {
-        return "DMPCContext{author=" + author + '}';
+        return "DMPCContext{" + "author=" + author + ", confidentialitCode=" + confidentialitCode + '}';
     }
     
     
