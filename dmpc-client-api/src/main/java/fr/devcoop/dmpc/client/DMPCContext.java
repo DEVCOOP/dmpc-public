@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class DMPCContext {
 
     private DMPCPersonnelSante author;
-    private DMPCCode confidentialitCode;
+    private DMPCCode confidentialityCode;
 
     public DMPCContext() {
     }
@@ -39,17 +39,17 @@ public class DMPCContext {
      * 
      * @return 
      */
-    public DMPCCode getConfidentialitCode() {
-        return confidentialitCode;
+    public DMPCCode getConfidentialityCode() {
+        return confidentialityCode;
     }
 
-    public void setConfidentialitCode(DMPCCode confidentialitCode) {
-        this.confidentialitCode = confidentialitCode;
+    public void setConfidentialityCode(DMPCCode confidentialityCode) {
+        this.confidentialityCode = confidentialityCode;
     }
 
     @Override
     public String toString() {
-        return "DMPCContext{" + "author=" + author + ", confidentialitCode=" + confidentialitCode + '}';
+        return "DMPCContext{" + "author=" + author + ", confidentialitCode=" + confidentialityCode + '}';
     }
     
     

@@ -171,4 +171,8 @@ public interface DMPCClient {
      * @throws DMPCClientException si problème technique ou fonctionnel
      */
     public DMPCParametres getParametres() throws DMPCClientException;
+    
+    /**
+     * Service permettant de récupérer la date au format 
+     */
 }
