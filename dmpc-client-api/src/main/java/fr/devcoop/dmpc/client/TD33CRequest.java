@@ -33,16 +33,6 @@ public class TD33CRequest {
         this.patientId = patientId;
     }
 
-    @Deprecated
-    public String getInsc() {
-        return patientId;
-    }
-
-    @Deprecated
-    public void setInsc(String insc) {
-        this.patientId = insc;
-    }
-
     public String getContentType() {
         return contentType;
     }
@@ -53,7 +43,7 @@ public class TD33CRequest {
 
     @Override
     public String toString() {
-        return "TD33CRequest{" + "documentUuid=" + documentUuid + ", insc=" + patientId + ", contentType=" + contentType + '}';
+        return "TD33CRequest{" + "documentUuid=" + documentUuid + ", ins=" + patientId + ", contentType=" + contentType + '}';
     }
     
 }

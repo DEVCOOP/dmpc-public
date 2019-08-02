@@ -136,6 +136,19 @@ public interface DMPCClient {
      * @throws DMPCClientException si problème technique ou fonctionnel.
      */
     public TD21Response td21SubmitDocuments(DMPCContext context, TD21Request request) throws DMPCClientException;
+    
+    
+    /**
+     * Recherche de l'identifiant technique (documentEntryUUID) d'un document à partir de son uniqueId
+     *
+     * Nécessaire pour la mise à jour des metadonnées d'un document (dépublication) et le remplacement de document.
+     * 
+     * @param context requis pour accéder à la fonction
+     * @param request contient le uniqueId connu.
+     * @return l'uuid du document dans la réponse
+     * @throws fr.devcoop.dmpc.client.DMPCClientException si problème technique ou fonctionnel
+     */
+    public TD31bResponse td31bGetDocumentEntry(DMPCContext context, TD31bRequest request) throws DMPCClientException;
 
     /**
      * Dépublication de documents
@@ -172,7 +185,5 @@ public interface DMPCClient {
      */
     public DMPCParametres getParametres() throws DMPCClientException;
     
-    /**
-     * Service permettant de récupérer la date au format 
-     */
+   
 }
