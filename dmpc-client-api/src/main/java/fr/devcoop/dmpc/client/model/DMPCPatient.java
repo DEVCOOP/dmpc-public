@@ -32,6 +32,7 @@ public class DMPCPatient {
     private String mobile;
     private DMPCAdresse adresse;
     private DMPCSexe sexe;
+    private DMPCRepresentantLegal representantLegal;
 
     /**
      * Identifiant National du santé du patient dans le DMP (NIR dans le DMP v2)
@@ -124,6 +125,10 @@ public class DMPCPatient {
         return sexe;
     }
 
+    public DMPCRepresentantLegal getRepresentantLegal() {
+        return representantLegal;
+    }
+
     public void setDateDeNaissance(String dateDeNaissance) {
         this.dateDeNaissance = dateDeNaissance;
     }
@@ -185,6 +190,10 @@ public class DMPCPatient {
         this.sexe = sexe;
     }
 
+    public void setRepresentantLegal(DMPCRepresentantLegal representantLegal) {
+        this.representantLegal = representantLegal;
+    }
+    
     @Override
     public String toString() {
         return "DMPCPatient{" + "insc=" + ins + ", internalId=" + internalId + ", nomPatronymique=" + nomPatronymique + ", prenom=" + prenom + ", nomUsuel=" + nomUsuel + ", dateDeNaissance=" + dateDeNaissance + ", ordreDeNaissance=" + ordreDeNaissance + ", email=" + email + ", telephone=" + telephone + ", adresse=" + adresse + ", sexe=" + sexe + '}';
