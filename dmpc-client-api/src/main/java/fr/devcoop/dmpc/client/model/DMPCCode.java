@@ -17,6 +17,7 @@ public class DMPCCode {
      */
     public enum ASIPJeuxValeurs {
 
+        QUALITE_REPRESENTANT_LEGAL,
         AUTHOR_SPECIALITY,
         CLASS_CODE,
         CONFIDENTIALITY_CODE,
