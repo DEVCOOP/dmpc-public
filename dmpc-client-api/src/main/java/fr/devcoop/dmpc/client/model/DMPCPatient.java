@@ -25,7 +25,7 @@ public class DMPCPatient {
     private String nomUsuel;
     @NotNull
     private String dateDeNaissance;
-    private int ordreDeNaissance;
+    private int ordreDeNaissance = 1;
     private String paysDeNaissance;
     private String email;
     private String telephone;
