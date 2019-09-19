@@ -19,8 +19,8 @@ public class TD03Request {
     public TD03Request() {
     }
 
-    public TD03Request(String insc, DMPCRole role) {
-        this.ins = insc;
+    public TD03Request(String ins, DMPCRole role) {
+        this.ins = ins;
         this.role = role;
     }
 
