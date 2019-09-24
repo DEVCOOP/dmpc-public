@@ -24,7 +24,7 @@ public class TD00Request {
 
     private DMPCNir nirOuvrantDroit;
     private String dateNaissance;
-    private int rangNaissance;
+    private int rangNaissance = 1;
     private DMPCNir nirIndividu;
 
     /**
