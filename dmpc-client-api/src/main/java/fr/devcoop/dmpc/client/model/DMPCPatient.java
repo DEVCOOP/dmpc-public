@@ -30,6 +30,8 @@ public class DMPCPatient {
     private String email;
     private String telephone;
     private String mobile;
+    @Length(max = 22)
+    private String nirOuvrantDroit;
     private DMPCAdresse adresse;
     private DMPCSexe sexe;
     private DMPCRepresentantLegal representantLegal;
@@ -63,6 +65,10 @@ public class DMPCPatient {
 
     public String getCivilite() {
         return civilite;
+    }
+
+    public String getNirOuvrantDroit() {
+        return nirOuvrantDroit;
     }
 
     /**
@@ -144,6 +150,10 @@ public class DMPCPatient {
 
     public void setCivilite(String civilite) {
         this.civilite = civilite;
+    }
+
+    public void setNirOuvrantDroit(String nirOuvrantDroit) {
+        this.nirOuvrantDroit = nirOuvrantDroit;
     }
 
     public void setNomPatronymique(String nomPatronymique) {
