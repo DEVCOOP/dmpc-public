@@ -9,6 +9,7 @@ import fr.devcoop.dmpc.client.model.DMPCPatient;
 public class TD11Response {
 
     private DMPCPatient patient;
+    private byte[] formulairePatient;
 
     public DMPCPatient getPatient() {
         return patient;
@@ -16,6 +17,14 @@ public class TD11Response {
 
     public void setPatient(DMPCPatient patient) {
         this.patient = patient;
+    }
+
+    public byte[] getFormulairePatient() {
+        return formulairePatient;
+    }
+
+    public void setFormulairePatient(byte[] formulairePatient) {
+        this.formulairePatient = formulairePatient;
     }
     
 }
