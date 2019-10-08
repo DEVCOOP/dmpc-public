@@ -14,7 +14,7 @@ public class TD02Response {
     }
 
     public enum Autorisation {
-        NON_EXISTENT,
+        NON_EXISTE,
         INTERDIT,
         EXPIRE,
         VALIDE,
