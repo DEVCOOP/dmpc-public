@@ -12,10 +12,18 @@ public class TD02Response {
     public enum Status {
         ACTIF, FERME, INEXISTANT;
     }
-    
+
+    public enum Autorisation {
+        NON_EXISTENT,
+        INTERDIT,
+        EXPIRE,
+        VALIDE,
+    }
+
     private DMPCPatient patient;
     private DMPCRole role;
     private Status status;
+    private Autorisation autorisation;
     private String raison;
     private Boolean compteInternetOuvert;
 
@@ -58,10 +66,18 @@ public class TD02Response {
     public void setCompteInternetOuvert(Boolean compteInternetOuvert) {
         this.compteInternetOuvert = compteInternetOuvert;
     }
-    
+
+    public Autorisation getAutorisation() {
+        return autorisation;
+    }
+
+    public void setAutorisation(Autorisation autorisation) {
+        this.autorisation = autorisation;
+    }
+
     @Override
     public String toString() {
-        return "TD02Response{" + "patient=" + patient + ", role=" + role + ", status=" + status + ", raison=" + raison + '}';
+        return "TD02Response{" + "patient=" + patient + ", role=" + role + ", status=" + status + ", autorisation=" + autorisation + ", raison=" + raison + ", compteInternetOuvert=" + compteInternetOuvert + '}';
     }
 
 }
