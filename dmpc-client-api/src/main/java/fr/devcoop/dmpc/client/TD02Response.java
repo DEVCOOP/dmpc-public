@@ -17,6 +17,7 @@ public class TD02Response {
     private DMPCRole role;
     private Status status;
     private String raison;
+    private Boolean compteInternetOuvert;
 
     public DMPCPatient getPatient() {
         return patient;
@@ -50,6 +51,14 @@ public class TD02Response {
         this.raison = raison;
     }
 
+    public Boolean getCompteInternetOuvert() {
+        return compteInternetOuvert;
+    }
+
+    public void setCompteInternetOuvert(Boolean compteInternetOuvert) {
+        this.compteInternetOuvert = compteInternetOuvert;
+    }
+    
     @Override
     public String toString() {
         return "TD02Response{" + "patient=" + patient + ", role=" + role + ", status=" + status + ", raison=" + raison + '}';
