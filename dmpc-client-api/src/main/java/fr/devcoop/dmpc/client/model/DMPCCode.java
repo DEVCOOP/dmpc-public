@@ -26,7 +26,8 @@ public class DMPCCode {
         HEALTH_CARE_FACILITY_TYPE_CODE,
         PRACTICE_SETTING_CODE,
         SUBJECT_ROLE,
-        TYPE_CODE
+        TYPE_CODE,
+        RESTRICTION_AUDIENCE_VIHF
     }
     @NotNull
     private String code;
