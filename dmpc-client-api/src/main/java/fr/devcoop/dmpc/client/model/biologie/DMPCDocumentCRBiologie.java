@@ -17,6 +17,7 @@ public class DMPCDocumentCRBiologie extends DMPCDocument {
     private Participation prelevement;
     private List<Participation> validations;
     private List<DMPCPersonnelSante> destinataires;
+    private ContextePriseEnCharge contextePriseEnCharge;
 
     private StructuredBody body;
 
@@ -85,6 +86,12 @@ public class DMPCDocumentCRBiologie extends DMPCDocument {
         this.body = body;
     }
 
-    
+    public ContextePriseEnCharge getContextePriseEnCharge() {
+        return contextePriseEnCharge;
+    }
+
+    public void setContextePriseEnCharge(ContextePriseEnCharge contextePriseEnCharge) {
+        this.contextePriseEnCharge = contextePriseEnCharge;
+    }
 
 }
