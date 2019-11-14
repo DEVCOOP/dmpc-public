@@ -1,7 +1,7 @@
 package fr.devcoop.dmpc.client.model;
 
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -10,18 +10,18 @@ import org.hibernate.validator.constraints.Length;
 public class DMPCPatient {
 
     @NotNull 
-    @Length(max = 22)
+    @Size(max = 22)
     private String ins;
     @NotNull
     private String internalId;
-    @Length(max = 5)
+    @Size(max = 5)
     private String civilite;
-    @Length(max = 80)
+    @Size(max = 80)
     private String nomPatronymique;
-    @Length(max = 60)
+    @Size(max = 60)
     private String prenom;
     @NotNull
-    @Length(max = 80)
+    @Size(max = 80)
     private String nomUsuel;
     @NotNull
     private String dateDeNaissance;
@@ -30,7 +30,7 @@ public class DMPCPatient {
     private String email;
     private String telephone;
     private String mobile;
-    @Length(max = 22)
+    @Size(max = 22)
     private String nirOuvrantDroit;
     private DMPCAdresse adresse;
     private DMPCSexe sexe;

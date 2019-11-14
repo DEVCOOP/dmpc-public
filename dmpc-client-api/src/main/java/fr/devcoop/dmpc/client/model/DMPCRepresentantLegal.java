@@ -1,13 +1,13 @@
 package fr.devcoop.dmpc.client.model;
 
-import org.hibernate.validator.constraints.Length;
+import javax.validation.constraints.Size;
 
 public class DMPCRepresentantLegal {
 
     private String civilite;
-    @Length(max = 80)
+    @Size(max = 80)
     private String nom;
-    @Length(max = 60)
+    @Size(max = 60)
     private String prenom;
     private String qualite; // Jeu de valeurs pour Qualité représentant légal 
     private String email;

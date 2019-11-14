@@ -4,7 +4,6 @@ import fr.devcoop.dmpc.client.model.biologie.DMPCDocumentCRBiologie;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -15,7 +14,6 @@ public class DMPCSubmission {
     private String comments;
     @NotNull
     private String contentType;
-//    @NotEmpty
     private List<DMPCDocument> documents = new ArrayList<>();
     private List<DMPCDocumentCRBiologie> documentsCRBiologie = new ArrayList<>();
     @NotNull
