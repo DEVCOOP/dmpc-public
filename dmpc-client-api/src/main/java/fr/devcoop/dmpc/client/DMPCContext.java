@@ -18,6 +18,22 @@ public class DMPCContext {
 
     private DMPCPersonnelSante author;
     private DMPCCode confidentialityCode;
+    private DMPCInsNirAutorite insNirAutorite;
+    
+    
+    /**
+     * Si les NIR proviennent d’une carte Vitale, l’OID de l’autorité d'affectation des NIR doit correspondre au type de carte Vitale.
+     * Pour une carte Vitale réelle, le LPS attribue l’OID réel.
+     * Pour une carte Vitale de test, le LPS attribue l’OID de test.
+     * Pour une carte Vitale de démonstration, le LPS attribut l’OID de démonstration.
+     * Sinon, l’OID doit correspondre au type de NIR utilisé :
+     * NIR d’une personne réelle, le LPS attribue l’OID réel.
+     * NIR d’une personne fictive utilisé pour des tests, le LPS attribue l’OID de test,
+     * NIR d’une personne fictive utilisé pour des démonstrations, le LPS attribue l’OID de démonstration.Tous ces OID sont définis dans [OID-INS].
+     */
+    public enum DMPCInsNirAutorite {
+        TEST, DEMO, REEL;
+    }
 
     public DMPCContext() {
     }
@@ -47,10 +63,17 @@ public class DMPCContext {
         this.confidentialityCode = confidentialityCode;
     }
 
-    @Override
-    public String toString() {
-        return "DMPCContext{" + "author=" + author + ", confidentialitCode=" + confidentialityCode + '}';
+    public DMPCInsNirAutorite getInsNirAutorite() {
+        return insNirAutorite;
+    }
+
+    public void setInsNirAutorite(DMPCInsNirAutorite insNirAutorite) {
+        this.insNirAutorite = insNirAutorite;
     }
     
+    @Override
+    public String toString() {
+        return "DMPCContext{" + "author=" + author + ", confidentialityCode=" + confidentialityCode + ", type=" + insNirAutorite + '}';
+    }
     
 }
