@@ -10,6 +10,7 @@ public class DMPCParametres {
     private boolean fonctionsGestionMineurs;
     private boolean cumulInvisiblePatientMasquePs;
     private int ageMajorite;
+    private boolean production;
 
     /**
      * EX_GEN_1550 : contient le  paramètre fonctions-gestions-mineurs. 
@@ -44,4 +45,19 @@ public class DMPCParametres {
         this.ageMajorite = ageMajorite;
     }
 
+    /**
+     * Détermine si l'environnement cible est de production ou non
+     * 
+     * @return true si production
+     */
+    public boolean isProduction() {
+        return production;
+    }
+
+    public void setProduction(boolean production) {
+        this.production = production;
+    }
+
+    
+    
 }
