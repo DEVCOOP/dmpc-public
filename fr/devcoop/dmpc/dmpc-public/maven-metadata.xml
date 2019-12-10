@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>fr.devcoop.dmpc</groupId>
-  <artifactId>dmpc-client-api</artifactId>
+  <artifactId>dmpc-public</artifactId>
   <versioning>
     <versions>
-      <version>3.0-SNAPSHOT</version>
+      <version>3.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20191008125651</lastUpdated>
+    <lastUpdated>20191210133921</lastUpdated>
   </versioning>
 </metadata>
