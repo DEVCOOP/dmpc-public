@@ -112,6 +112,17 @@ public interface DMPCClient {
      * @throws DMPCClientException si problème technique ou fonctionnel.
      */
     public TD15bResponse td15bRemoveCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCClientException;
+    
+    /**
+     * Modification de canal OTP
+     *
+     * @param context requis pour accéder à la fonction
+     * @param request contenant l'information patient et un canal OTP (One Time
+     * Password)
+     * @return une réponse vide
+     * @throws DMPCClientException si problème technique ou fonctionnel.
+     */
+    public TD15bResponse td15bUpdateCanalOTP(DMPCContext context, TD15bRequest request) throws DMPCClientException;
 
     /**
      * Déblocage du compte internet ou mise à jour des codes internet.
