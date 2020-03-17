@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
  * @author lfo
  */
 public class DMPCStructureSante {
+    
+    private String idNational;
 
     @NotNull
     private String nom;
@@ -27,6 +29,14 @@ public class DMPCStructureSante {
 
     public void setAdresse(DMPCAdresse adresse) {
         this.adresse = adresse;
+    }
+
+    public String getIdNational() {
+        return idNational;
+    }
+
+    public void setIdNational(String idNational) {
+        this.idNational = idNational;
     }
     
     
