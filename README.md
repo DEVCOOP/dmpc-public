@@ -3,9 +3,9 @@ dmpc-public
 
 La DMPC-API est une interface de programmation écrite en Java, fournissant une abstraction de haut niveau permettant l'exécution de l'ensemble des transactions définies dans le cahier des charges pour la DMP Compatibilité. 
 
-Elle facilite ainsi aux intégrateurs/éditeurs la mise en place des contraintes fortes imposées par l'ASIP Santé pour la DMP Compatibilité.
+Elle facilite ainsi aux intégrateurs/éditeurs la mise en place des contraintes fortes imposées par le Sesam Vitale pour la DMP Compatibilité.
 
-Ces contraintes sont de deux natures. La première, technique, est la mise en oeuvre de la sécurité dans le DMP. C'est à dire la gestion des authentifications et des autorisations, ainsi que le cryptage des communications. La deuxième, fonctionnel, concerne le respect des différents standards internationaux imposés dans le cahier des charges : IHE, OASIS, HL7, W3C, ASIP Santé (Cadre d'intéropérabilité) …
+Ces contraintes sont de deux natures. La première, technique, est la mise en oeuvre de la sécurité dans le DMP. C'est à dire la gestion des authentifications et des autorisations, ainsi que le chiffrement des communications. La deuxième, fonctionnel, concerne le respect des différents standards internationaux imposés dans le cahier des charges : IHE, OASIS, HL7, W3C, ANS (Cadre d'intéropérabilité) …
 
 Mise en oeuvre
 
