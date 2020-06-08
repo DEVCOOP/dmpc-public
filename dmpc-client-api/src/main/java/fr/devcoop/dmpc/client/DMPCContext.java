@@ -1,6 +1,7 @@
 package fr.devcoop.dmpc.client;
 
 import fr.devcoop.dmpc.client.model.DMPCCode;
+import fr.devcoop.dmpc.client.model.DMPCModeAcces;
 import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +20,7 @@ public class DMPCContext {
     private DMPCPersonnelSante author;
     private DMPCCode confidentialityCode;
     private DMPCInsNirAutorite insNirAutorite;
+    private DMPCModeAcces modeAcces;
     
     
     /**
@@ -69,6 +71,14 @@ public class DMPCContext {
 
     public void setInsNirAutorite(DMPCInsNirAutorite insNirAutorite) {
         this.insNirAutorite = insNirAutorite;
+    }
+
+    public DMPCModeAcces getModeAcces() {
+        return modeAcces;
+    }
+
+    public void setModeAcces(DMPCModeAcces modeAcces) {
+        this.modeAcces = modeAcces;
     }
     
     @Override
