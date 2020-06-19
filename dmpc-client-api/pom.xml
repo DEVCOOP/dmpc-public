@@ -5,7 +5,7 @@
     <parent>
         <artifactId>dmpc-public</artifactId>
         <groupId>fr.devcoop.dmpc</groupId>
-        <version>3.1-SNAPSHOT</version>
+        <version>3.2-SNAPSHOT</version>
     </parent>
     <artifactId>dmpc-client-api</artifactId>
     <name>dmpc-public :: client-api</name>
