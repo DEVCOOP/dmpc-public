@@ -160,6 +160,9 @@ public interface DMPCClient {
      * @throws fr.devcoop.dmpc.client.DMPCClientException si problème technique ou fonctionnel
      */
     public TD31bResponse td31bGetDocumentEntry(DMPCContext context, TD31bRequest request) throws DMPCClientException;
+    
+    
+    public TD31Response td31Find(DMPCContext context, TD31Request request) throws DMPCClientException;
 
     /**
      * Dépublication de documents

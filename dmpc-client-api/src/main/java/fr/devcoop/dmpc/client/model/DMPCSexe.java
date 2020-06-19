@@ -14,4 +14,12 @@ public enum DMPCSexe {
     F, 
     /** Inconnu */
     U;
+    
+    public static DMPCSexe fromCode(String code) {
+        try {
+            return DMPCSexe.valueOf(code);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
 }
