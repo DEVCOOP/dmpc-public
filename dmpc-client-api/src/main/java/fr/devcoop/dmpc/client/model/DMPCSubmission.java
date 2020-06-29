@@ -20,6 +20,8 @@ public class DMPCSubmission {
     private DMPCPatient patient;
     private String title;
     private String uuid;
+    private String uniqueId;
+    private AvailabilityStatus status;
 
     /**
      * Commentaires
@@ -97,6 +99,22 @@ public class DMPCSubmission {
         this.uuid = uuid;
     }
 
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
+    }
+
+    public AvailabilityStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AvailabilityStatus status) {
+        this.status = status;
+    }
+    
     public void setDocuments(List<DMPCDocument> documents) {
         this.documents = documents;
     }

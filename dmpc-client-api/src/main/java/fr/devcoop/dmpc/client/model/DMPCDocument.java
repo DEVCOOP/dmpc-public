@@ -44,12 +44,13 @@ public class DMPCDocument {
     private String uniqueId;
     private String replacementOf;
     private String replacementOfUniqueId;
+    private AvailabilityStatus status;
 
     /**
-     * Liste des auteurs du document. Si non précisé lors d'une soumission, 
+     * Liste des auteurs du document. Si non précisé lors d'une soumission,
      * l'auteur de la soumission devient l'auteur du document.
-     * 
-     * @return auteur 
+     *
+     * @return auteur
      */
     public List<DMPCPersonnelSante> getAuteurs() {
         return auteurs;
@@ -57,6 +58,7 @@ public class DMPCDocument {
 
     /**
      * Code du contentType
+     *
      * @see DMPCCode.ASIPJeuxValeurs#CLASS_CODE
      */
     @NotNull
@@ -72,7 +74,8 @@ public class DMPCDocument {
     }
 
     /**
-     * Liste de code de confidentialité parmi 
+     * Liste de code de confidentialité parmi
+     *
      * @see DMPCCode.ASIPJeuxValeurs#CONFIDENTIALITY_CODE
      */
     @NotNull
@@ -82,7 +85,7 @@ public class DMPCDocument {
     }
 
     /**
-     * Le contenu binaire du document 
+     * Le contenu binaire du document
      */
     @NotNull
     public byte[] getContent() {
@@ -90,11 +93,12 @@ public class DMPCDocument {
     }
 
     /**
-     * Date de création du document en temps universel au format yyyyMMddHHmmss. 
-     * Si non renseigné à la soumission la date de création sera générée à la volée.
-     * 
-     * Attention : forte contrainte de synchronisation NTP et ordonnancement des 
-     * dates entre la création d'un document d'une soumission d'une signature et 
+     * Date de création du document en temps universel au format yyyyMMddHHmmss.
+     * Si non renseigné à la soumission la date de création sera générée à la
+     * volée.
+     *
+     * Attention : forte contrainte de synchronisation NTP et ordonnancement des
+     * dates entre la création d'un document d'une soumission d'une signature et
      * du jeton VIHF.
      */
     @NotNull
@@ -112,12 +116,13 @@ public class DMPCDocument {
 
     /**
      * [CI-STRU-ENTETE] §3.3.6.1.1
-     * 
-     * Liste de code de event permettant de codifier l'acte :
-     * Pour acte médical, y compris imagerie et anatomopathologie utiliser : CCAM 1.2.250.1.213.2.5
-     * Pour diagnostic de pathologie utiliser : CIM10 2.16.840.1.113883.6.3
-     * Pour résultat de consultation utiliser : DRC 1.2.250.1.213.2.9
-     * Pur analyses de biologie chapitres (disciplines) de biologie, coder en : LOINC 2.16.840.1.113883.6.1
+     *
+     * Liste de code de event permettant de codifier l'acte : Pour acte médical,
+     * y compris imagerie et anatomopathologie utiliser : CCAM 1.2.250.1.213.2.5
+     * Pour diagnostic de pathologie utiliser : CIM10 2.16.840.1.113883.6.3 Pour
+     * résultat de consultation utiliser : DRC 1.2.250.1.213.2.9 Pur analyses de
+     * biologie chapitres (disciplines) de biologie, coder en : LOINC
+     * 2.16.840.1.113883.6.1
      */
     public List<DMPCCode> getEvents() {
         return events;
@@ -125,6 +130,7 @@ public class DMPCDocument {
 
     /**
      * Code format
+     *
      * @see DMPCCode.ASIPJeuxValeurs#FORMAT_CODE
      */
     @NotNull
@@ -134,6 +140,7 @@ public class DMPCDocument {
 
     /**
      * code HealthcareFacilityType
+     *
      * @see DMPCCode.ASIPJeuxValeurs#HEALTH_CARE_FACILITY_TYPE_CODE
      */
 //    @NotNull
@@ -155,11 +162,11 @@ public class DMPCDocument {
     }
 
     /**
-     * Patient du document. Si non précisé lors d'une soumission, 
-     * le patient de la soumission devient le patient du document.
-     * 
+     * Patient du document. Si non précisé lors d'une soumission, le patient de
+     * la soumission devient le patient du document.
+     *
      * Si précisé vérification que le patient est le même que dans soumission.
-     * 
+     *
      * @return patient
      */
     public DMPCPatient getPatient() {
@@ -168,6 +175,7 @@ public class DMPCDocument {
 
     /**
      * code practiceSetting
+     *
      * @see DMPCCode.ASIPJeuxValeurs#PRACTICE_SETTING_CODE
      */
     @NotNull
@@ -176,14 +184,16 @@ public class DMPCDocument {
     }
 
     /**
-     * Date de début de l'acte en UTC (universal coordinated time) au format yyyyMMddHHmmss
+     * Date de début de l'acte en UTC (universal coordinated time) au format
+     * yyyyMMddHHmmss
      */
     public String getServiceStartTime() {
         return serviceStartTime;
     }
 
     /**
-     * Date de fin de l'acte en UTC (universal coordinated time) au format yyyyMMddHHmmss
+     * Date de fin de l'acte en UTC (universal coordinated time) au format
+     * yyyyMMddHHmmss
      */
     public String getServiceStopTime() {
         return serviceStopTime;
@@ -194,7 +204,8 @@ public class DMPCDocument {
     }
 
     /**
-     * code type 
+     * code type
+     *
      * @see DMPCCode.ASIPJeuxValeurs#TYPE_CODE
      */
     @NotNull
@@ -211,8 +222,9 @@ public class DMPCDocument {
     }
 
     /**
-     * UUID du document à remplacer. 
-     * @return 
+     * UUID du document à remplacer.
+     *
+     * @return
      */
     public String getReplacementOf() {
         return replacementOf;
@@ -221,7 +233,6 @@ public class DMPCDocument {
     public String getReplacementOfUniqueId() {
         return replacementOfUniqueId;
     }
-    
 
     public void addAuteur(DMPCPersonnelSante auteur) {
         this.auteurs.add(auteur);
@@ -318,9 +329,17 @@ public class DMPCDocument {
         this.replacementOfUniqueId = replacementOfUniqueId;
     }
 
+    public AvailabilityStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(AvailabilityStatus status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "DMPCDocument{" + "auteurs=" + auteurs + ", classCode=" + classCode + ", comments=" + comments + ", confidentialities=" + confidentialities + ", content=" + content + ", creationTime=" + creationTime + ", entryUuid=" + entryUuid + ", events=" + events + ", format=" + format + ", legalAuthenticator=" + legalAuthenticator + ", mimeType=" + mimeType + ", patient=" + patient + ", practiceSetting=" + practiceSetting + ", serviceStartTime=" + serviceStartTime + ", serviceStopTime=" + serviceStopTime + ", title=" + title + ", type=" + type + ", uniqueId=" + uniqueId + ", replacementOf=" + replacementOf + ", replacementOfUniqueId=" + replacementOfUniqueId + '}';
     }
-   
+
 }
