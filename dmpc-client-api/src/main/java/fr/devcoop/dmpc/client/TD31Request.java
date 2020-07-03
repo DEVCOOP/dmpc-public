@@ -1,7 +1,6 @@
 package fr.devcoop.dmpc.client;
 
 import fr.devcoop.dmpc.client.model.AvailabilityStatus;
-import fr.devcoop.dmpc.client.model.DMPCDocument;
 import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
 import java.util.List;
 import javax.validation.constraints.NotNull;
@@ -10,7 +9,8 @@ public abstract class TD31Request {
 
     public enum Query {
         FindDocuments,
-        FindSubmissionSets,;
+        FindSubmissionSetsAndGetContents,
+        GetDocuments;
     }
 
     @NotNull
@@ -31,9 +31,7 @@ public abstract class TD31Request {
         private String classCode;
         private String typeCode;
         private String practiceSettingCode;
-        private String creationTimeFrom;
-
-        private String creationTimeTo;
+        private String creationTimeFrom, creationTimeTo;
         private String serviceStartTimeFrom, serviceStartTimeTo;
         private String serviceStopTimeFrom, serviceStopTimeTo;
         private String healthcareFacilityTypeCode;
@@ -41,7 +39,7 @@ public abstract class TD31Request {
         private List<String> confidentialityCode;
         private DMPCPersonnelSante auteur;
         private String formatCode;
-        @NotNull 
+        @NotNull
         private List<AvailabilityStatus> statuses;
         private String type;
 
@@ -180,9 +178,9 @@ public abstract class TD31Request {
 
     }
 
-    public static class FindSubmissionSets extends TD31Request {
-        
-        private String sourceId; 
+    public static class FindSubmissionSetsAndGetContents extends TD31Request {
+
+        private String sourceId;
         private String submissionTimeFrom, submissionTimeTo;
         private DMPCPersonnelSante auteur;
         private String contentType;
@@ -190,7 +188,7 @@ public abstract class TD31Request {
 
         @Override
         public Query getQuery() {
-            return Query.FindSubmissionSets;
+            return Query.FindSubmissionSetsAndGetContents;
         }
 
         public String getSourceId() {
@@ -240,6 +238,33 @@ public abstract class TD31Request {
         public void setStatuses(List<AvailabilityStatus> statuses) {
             this.statuses = statuses;
         }
-        
+
+    }
+
+    public static class GetDocuments extends TD31Request {
+
+        private String documentEntryUuid;
+        private String documentEntryUniqueId;
+
+        public String getDocumentEntryUuid() {
+            return documentEntryUuid;
+        }
+
+        @Override
+        public Query getQuery() {
+            return Query.GetDocuments;
+        }
+
+        public void setDocumentEntryUuid(String documentEntryUuid) {
+            this.documentEntryUuid = documentEntryUuid;
+        }
+
+        public String getDocumentEntryUniqueId() {
+            return documentEntryUniqueId;
+        }
+
+        public void setDocumentEntryUniqueId(String documentEntryUniqueId) {
+            this.documentEntryUniqueId = documentEntryUniqueId;
+        }
     }
 }
