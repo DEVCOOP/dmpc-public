@@ -1,6 +1,7 @@
 package fr.devcoop.dmpc.client;
 
 import fr.devcoop.dmpc.client.model.AvailabilityStatus;
+import fr.devcoop.dmpc.client.model.DMPCCode;
 import fr.devcoop.dmpc.client.model.DMPCPersonnelSante;
 import java.util.List;
 import javax.validation.constraints.NotNull;
@@ -35,7 +36,7 @@ public abstract class TD31Request {
         private String serviceStartTimeFrom, serviceStartTimeTo;
         private String serviceStopTimeFrom, serviceStopTimeTo;
         private String healthcareFacilityTypeCode;
-        private List<String> eventCodeList;
+        private List<DMPCCode> eventCodeList;
         private List<String> confidentialityCode;
         private DMPCPersonnelSante auteur;
         private String formatCode;
@@ -128,11 +129,11 @@ public abstract class TD31Request {
             this.healthcareFacilityTypeCode = healthcareFacilityTypeCode;
         }
 
-        public List<String> getEventCodeList() {
+        public List<DMPCCode> getEventCodeList() {
             return eventCodeList;
         }
 
-        public void setEventCodeList(List<String> eventCodeList) {
+        public void setEventCodeList(List<DMPCCode> eventCodeList) {
             this.eventCodeList = eventCodeList;
         }
 
