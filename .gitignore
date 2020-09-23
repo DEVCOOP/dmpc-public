@@ -2,3 +2,5 @@
 /dmpc-proxy-api/target/
 /dmpc-client-api/target/
 /dmpc-client-sample/target/
+*.iml
+/.idea
