@@ -1,8 +1,9 @@
 dmpc-public [DEPRECATED]
 ===========
 
-__Le projet est hébergé sur bitbucket désormais : https://bitbucket.org/devbox-sante/dmpc-api 
-Pour plus de renseignement : https://dmp.devbox-sante.fr/__
+__Le projet est hébergé sur bitbucket désormais : https://bitbucket.org/devbox-sante/dmpc-api__
+
+__Pour plus de renseignement : https://doc.devbox-sante.fr/docs/dmp__
 
 La DMPC-API est une interface de programmation écrite en Java, fournissant une abstraction de haut niveau permettant l'exécution de l'ensemble des transactions définies dans le cahier des charges pour la DMP Compatibilité. 
 
