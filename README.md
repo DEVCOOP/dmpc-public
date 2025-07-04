@@ -1,7 +1,7 @@
 dmpc-public [DEPRECATED]
 ===========
 
-__Le projet est hébergé sur bitbucket désormais : https://bitbucket.org/devbox-sante
+__Le projet est hébergé sur bitbucket désormais : https://bitbucket.org/devbox-sante/devbox-sante-apis
 
 __Pour plus de renseignement : https://doc.devbox-sante.fr__
 
